@@ -1,0 +1,277 @@
+@import "../files";
+
+.login-page {
+  background-color: $color-grey;
+  background: linear-gradient(to top left, $color-primary, $color-secondary);
+  font-family: $fonts;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 5s ease-in-out;
+
+  .container-login {
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
+    padding: 50px 30px;
+    border-radius: 10px;
+    min-width: 1000px;
+    max-width: 100px;
+    min-height: 550px;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-white;
+    position: relative;
+    overflow: hidden;
+
+    .form {
+      position: absolute;
+      top: 0;
+      text-align: center;
+      padding: 0 20px;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $color-white;
+      overflow: hidden;
+
+      .form-message {
+        width: 120%;
+        background-color: rgba(248, 128, 128, 0.247);
+        border: 1px solid rgba(255, 0, 0, 0.479);
+        box-shadow: 0px 3px 30px 0px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        left: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 10px;
+        transform: translateX(-50%);
+        margin-top: 20px;
+        gap: 20px;
+        min-height: 50px;
+
+        .message-error {
+          font-size: 13px;
+          width: 80%;
+          display: flex;
+          text-align: left;
+          justify-content: start;
+          align-items: center;
+        }
+
+        &.success {
+          background-color: rgba(212, 253, 212, 0.568);
+          border: 1px solid rgb(30, 83, 30);
+
+          .icon {
+            background-color: rgb(30, 83, 30);
+            color: $color-white;
+            padding: 10px;
+            font-size: 10px;
+          }
+        }
+
+        .icon {
+          background-color: rgba(255, 0, 0, 0.479);
+          width: 17px;
+          height: 17px;
+          border-radius: 50%;
+          font-size: 11px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      &.sign-up-form {
+        left: 0;
+
+        .wrapper {
+          transform: translateX(100%);
+        }
+      }
+
+      &.sign-up-form.active .wrapper {
+        transform: translateX(0);
+      }
+
+      &.sign-in-form {
+        right: 0;
+
+        .wrapper {
+          transform: translateX(-100%);
+        }
+      }
+
+      &.sign-in-form.active .wrapper {
+        transform: translateX(0);
+      }
+
+      .wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition: 0.7s ease-in-out transform;
+
+        form {
+          position: relative;
+
+          h1 {
+            font-weight: bold;
+            text-transform: capitalize;
+            font-size: 25px;
+            margin-bottom: 10px;
+          }
+
+          p {
+            font-weight: 300;
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 20px;
+          }
+
+          input {
+            display: block;
+            width: 300px;
+            margin: 0 auto;
+            margin-bottom: 5px;
+            height: 60px;
+            font-size: 15px;
+            border: none;
+            background-color: transparent;
+            border-bottom: 1px solid $color-primary;
+            outline: none;
+            padding: 25px 15px 10px 15px;
+            position: relative;
+            transition: 0.5s ease border-bottom;
+
+            &::placeholder {
+              transform: translateX(0px);
+              transition: 0.5s;
+              position: absolute;
+              font-size: 14px;
+            }
+
+            &:hover,
+            &:focus,
+            &:active:focus {
+              color: $color-dark;
+              outline: none;
+              border-bottom: 1px solid $color-dark-light;
+              &::placeholder {
+                color: $color-primary;
+                position: absolute;
+                transform: translateY(-20px);
+              }
+            }
+          }
+
+          .input-password {
+            position: relative;
+
+            button {
+              position: absolute;
+              top: 15%;
+              right: 5px;
+              padding: 3px 6px;
+              background-color: transparent;
+              transform: translateY(-50%);
+              cursor: pointer;
+              font-size: 12px;
+              color: #666666;
+            }
+
+            #password {
+              padding-right: 30px;
+            }
+          }
+
+          button {
+            padding: 12px 60px;
+            outline: none;
+            background-color: $color-dark;
+            color: $color-white;
+            cursor: pointer;
+            margin-top: 30px;
+            border: 2px solid transparent;
+            position: relative;
+            border-radius: 7px;
+          }
+        }
+      }
+    }
+  }
+
+  .overlay-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: 0.7s ease-in-out transform;
+
+    .overlay {
+      position: absolute;
+      left: 0;
+      width: 200%;
+      background-color: $color-dark-light;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      transition: 0.7s ease-in-out transform;
+
+      img {
+        width: 25%;
+        padding: 5px 5px 20px;
+      }
+
+      .overlay-left,
+      .overlay-right {
+        flex-basis: 50%;
+        text-align: center;
+        padding: 0px 60px;
+      }
+
+      h1 {
+        font-size: 28px;
+        font-weight: bold;
+        color: $color-white;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 300;
+        color: $color-white;
+        padding: 0 25px;
+        line-height: 22px;
+      }
+
+      button {
+        padding: 12px 60px;
+        border: none;
+        outline: none;
+        background-color: $color-white;
+        color: $color-dark-light;
+        cursor: pointer;
+        margin-top: 30px;
+        border-radius: 7px;
+      }
+    }
+  }
+}

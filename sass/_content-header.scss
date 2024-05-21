@@ -1,0 +1,129 @@
+@import "files";
+
+.content-header {
+  display: flex;
+  gap: 20px;
+  padding: 30px 20px 20px 20px;
+  align-items: center;
+  grid-column: 6 / 20;
+  grid-row: 1 / 2;
+
+  //////////////////////////////   Arrows /////////////////////////////////////////////////////////////////
+
+  &__arrows {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 15px;
+    width: 10%;
+    height: 40px;
+
+    i {
+      padding: 10px;
+      border-radius: 100px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      color: $color-dark-light;
+
+      &:hover {
+        background-color: #ececec;
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  /////////////////////////   Data ///////////////////////////////////////
+
+  &__data {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    width: 20%;
+    height: 40px;
+    color: $color-dark-light;
+    font-family: $fonts;
+    font-size: 19px;
+    font-weight: 600;
+
+    &--week {
+      font-weight: 200;
+      color: $color-grey;
+    }
+  }
+
+  /////////////////////// Change week /////////////////////////////////////
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    font-family: $fonts;
+    font-size: 18px;
+    font-weight: 600;
+
+    p {
+      color: $color-dark;
+    }
+  }
+
+  ///////////////////////// Edit account ///////////////////////////////////
+
+  &__logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 15%;
+    height: 40px;
+    background-color: $color-white;
+    border-radius: 10px;
+    font-family: $fonts;
+    font-size: 14px;
+    font-weight: 600;
+    transition: box-shadow 0.2s ease-in;
+    border: 1px solid #e0e0e0;
+    margin-left: auto;
+    margin-right: 25px;
+    cursor: pointer !important;
+    z-index: 10;
+
+    i {
+      font-size: 15px;
+    }
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
+    }
+  }
+
+  &__reload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 35px;
+    height: 35px;
+    background-color: $color-secondary;
+    border-radius: 50%;
+    font-family: $fonts;
+    font-size: 14px;
+    font-weight: 600;
+    transition: box-shadow 0.2s ease-in;
+    border: 1px solid #e0e0e0;
+    margin-left: auto;
+    margin-right: 5px;
+    cursor: pointer !important;
+    z-index: 10;
+
+    i {
+      font-size: 15px;
+    }
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
+    }
+  }
+}

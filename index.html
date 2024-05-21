@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <script defer type="module" src="script/Controller.js"></script>
+  <title>To-Do App</title>
+</head>
+
+<body>
+
+
+  <section class="container hidden">
+    <!---------------------------------------------- Sidebar ------------------------------------->
+    <section class="sidebar">
+      <div class="sidebar-top">
+        <!-- LOGO -->
+        <div class="sidebar-top__logo">
+          <img src="img/logo2.png" alt="Logo" />
+        </div>
+        <!-- ICONS -->
+        <div class="sidebar-top__icons">
+          <i class="fa-regular fa-calendar icon--active"></i>
+        </div>
+      </div>
+      <!-- Sidebar bottom content -->
+      <div class="sidebar-bottom">
+        <img src="img/nouser.png" alt="User profile picture" />
+      </div>
+    </section>
+
+    <!--------------------------------------- MENUBAR tasks --------------------------------->
+    <section class="info-menubar">
+      <!-- TITLE -->
+      <div class="info-menubar__title">
+        <h1 class="info-menubar__title--text">Your tasks</h1>
+      </div>
+
+      <!-- DROPDOWN LIST -->
+      <div class="info-menubar__list">
+        <!-- 1 ITEM (Task indays) ACTIVE  -->
+        <div class="info-menubar__list--item">
+          <!-- Item title -->
+          <input id="s1" type="checkbox" name="t1" checked />
+          <label for="s1" class="info-menubar__list--item-title-container">
+            <p>Tasks for week 23</p>
+            <span class="number">0</span>
+          </label>
+          <!-- Item content -->
+          <div class="info-menubar__list--item-content-container">
+            <div class="list">
+            </div>
+          </div>
+        </div>
+        <!-- 1 ITEM (Task indays) ACTIVE  -->
+        <div class="info-menubar__list--item">
+          <!-- Item title -->
+          <input id="s2" type="checkbox" name="t2" />
+          <label for="s2" class="info-menubar__list--item-title-container task-for-month">
+            <p>Tasks for the current month</p>
+            <span class="number">25</span>
+          </label>
+          <!-- Item content -->
+          <div class="info-menubar__list--item-content-container task-for-month-full-month">
+            <div class="list">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+
+    <!--------------------------------------------- DATA CONTENT section ------------------------------------>
+
+    <!-- CONTENT HEADER -->
+    <section class="content-header">
+      <div class="content-header__arrows">
+        <i class="fa-solid fa-arrow-left preview-month"></i>
+        <i class="fa-solid fa-arrow-right next-month"></i>
+      </div>
+      <div class="content-header__data">
+        <p class="content-header__data--year">April</p>
+        <p class="content-header__data--week">(W2)</p>
+      </div>
+      <div class="content-header__title">
+        <p>Hello,</p>
+      </div>
+      <div class="content-header__reload">
+        <i class="fa-solid fa-arrows-rotate"></i>
+      </div>
+      <div class="content-header__logout">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <p>Logout</p>
+      </div>
+    </section>
+
+    <!--  CONTENT ALL DATA AND ITEMS -->
+
+    <section class="content-data">
+      <div class="content-data__add-task">
+        <i class="fa-solid fa-plus"></i>
+      </div>
+
+      <!-- Time data -->
+      <div class="content-data__container">
+        <div class="time-line-indicator"></div>
+        <div class="content-data__time-data" id="time-container">
+          <!--  -->
+        </div>
+      </div>
+
+      <!-- Month data -->
+      <div class="content-data__month-data" id="month-container">
+        <!--  -->
+      </div>
+
+      <!-- Empty data dashboard -->
+
+      <div class="content-data__empty hidden">
+
+        <div class="empty-dash">
+          <i class="fa-solid fa-rocket"></i>
+          <p class="empty-dash__title">Welcome to Your Dashboard!</p>
+
+          <p class="empty-dash__title-short">It looks like you're all caught up for now. Here are a few things you can
+            do to get started:</p>
+          <ul class="empty-dash__list">
+
+            <li class="empty-dash__list--item"><span>1</span>Add your first task: Click the "+" button to create a new
+              task and start organizing your work.</li>
+            <li class="empty-dash__list--item"><span>2</span>Create a project: Organize your tasks into projects to
+              better manage your workload.</li>
+          </ul>
+          <p class="empty-dash__remember">Remember, your dashboard is here to help you stay organized and on top of your
+            tasks.</p>
+          <p class="empty-dash__remember">Happy organizing!</p>
+          <i class="fa-solid fa-plus empty-dash__add-task"></i>
+        </div>
+      </div>
+
+      <!-- New tasks dahborad -->
+
+      <div class="content-data__items hidden">
+        <div class="content-data__items__overflow">
+        </div>
+      </div>
+
+
+    </section>
+
+    <!-- Popup elements -->
+
+    <div class="background-popup hidden">
+      <div class="popup">
+        <h2>Edit Profile</h2>
+        <form id="user-form">
+          <!-- Image upload -->
+          <div class="image-upload">
+            <div class="image-upload-container-img">
+              <div class="image-loader"></div>
+              <img class="preview-image" id="preview-image" src="/img/nouser.png" alt="Preview Image">
+              <input type="file" id="profile-image" accept="image/jpeg, image/png">
+            </div>
+
+            <div class="image-upload-content">
+              <div class="image-upload-content-text">
+                <label class="image-upload-btn">Upload new photo</label>
+                <span class="file-name" id="file-name"></span>
+              </div>
+              <p>At least 800x800 px recomended. <br> JPG or PNG allowed.</p>
+            </div>
+
+            <!-- Erro meesage -->
+            <!-- <div class="error-account-message">
+              <div class="icon">
+                <i class="fa-solid fa-exclamation"></i>
+              </div>
+              <div class="message-error">
+                <span class="error-login-text">Please upload good password</span>
+              </div>
+            </div> -->
+
+
+          </div>
+
+          <p class="personal-info">Personal Info</p>
+          <div class="account-form-inputs-1">
+            <!-- First Name -->
+            <div class="form-group form-group-1">
+              <div class="load-input"></div>
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="firstname" value="Your name...">
+
+            </div>
+            <!-- Last Name -->
+            <div class="form-group form-group-2">
+              <div class="load-input"></div>
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="lastname" value="" placeholder="Your last name...">
+            </div>
+            <!-- Email -->
+            <div class="form-group form-group-3">
+              <div class="load-input"></div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" value="" placeholder="Your email...">
+            </div>
+          </div>
+          <div class="account-form-inputs-1">
+            <!-- Birthday -->
+            <div class="form-group form-group-1">
+              <div class="load-input"></div>
+              <label for="birt-data">Birthday</label>
+              <input type="date" id="birt-data" name="birthday" value="" placeholder="Your birthday...">
+            </div>
+            <!-- Phone number -->
+            <div class="form-group form-group-2">
+              <div class="load-input"></div>
+              <label for="tel">Phone</label>
+              <input type="tel" id="tel" name="phone" value="" placeholder="Your phone...">
+            </div>
+            <!-- Password -->
+            <div class="form-group form-group-3 user-password">
+              <div class="load-input"></div>
+              <label for="password">Password</label>
+              <input class="user-acc-password" type="password" id="password" name="password" value=""
+                placeholder="Your password...">
+              <i class="fa-regular fa-eye user-acc-password-show"></i>
+            </div>
+          </div>
+          <!-- Submit button -->
+          <div class="account-update-btn">
+            <button type="submit" class="submit-acc-details">
+              <span>Update Personal Info</span>
+            </button>
+          </div>
+        </form>
+        <i class="fa-solid fa-xmark exit-profile"></i>
+      </div>
+    </div>
+    </div>
+
+    <!-- Add task -->
+
+    <div class="background-add-task-popup hidden">
+      <div class="popup">
+        <h2 id="form-title">Create task</h2>
+        <form id="task-form" class="">
+          <!--  -->
+          <input type="hidden" id="task-id" name="id">
+          <!--  -->
+          <div class="form-group">
+            <label for="task-title">Title</label>
+            <input type="text" id="task-title" name="title" required>
+          </div>
+          <!--  -->
+          <div class="form-group">
+            <label for="task-description">Description</label>
+            <textarea id="task-description" name="description" rows="6"></textarea>
+          </div>
+          <!--  -->
+          <div class="time-container">
+            <div class="form-group">
+              <label for="due-date">Date</label>
+              <input type="date" id="due-date" name="date" required>
+            </div>
+            <div class="form-group">
+              <label for="due-time">Start time</label>
+              <input type="time" id="due-time" name="time" value="" required>
+            </div>
+            <div class="form-group">
+              <label for="duration">Duration (in hours)</label>
+              <!-- <input type="time" id="duration" name="duration" value="" required> -->
+              <select name="duration" id="duration">
+                <option value="0.5">0.5 hours</option>
+                <option value="1.0">1 hour</option>
+                <option value="1.5">1.5 hours</option>
+                <option value="2.0">2 hours</option>
+                <option value="2.5">2.5 hours</option>
+                <option value="3.0">3 hours</option>
+                <option value="3.5">3.5 hours</option>
+                <option value="4.0">4 hours</option>
+              </select>
+            </div>
+          </div>
+          <!--  -->
+          <div class="form-group group-button">
+            <button type="submit" id="task-form-button">Add Task</button>
+          </div>
+        </form>
+        <i class="fa-solid fa-xmark exit-task"></i>
+        <div class="popup-error hidden">
+        </div>
+      </div>
+      <!-- Error meesage -->
+    </div>
+
+
+  </section>
+
+  <!----------------------------------------- Login page ---------------------------------------->
+
+  <section class="login-page hidden">
+    <!-- Login funcionality -->
+    <div class="container-login">
+      <div class="form sign-up-form">
+        <!-- Sign Up form here -->
+        <div class="wrapper">
+          <form action="#">
+            <h1>Create Account</h1>
+            <p>Join our community by creating an account</p>
+            <input type="text" placeholder="Name" class="register-name" />
+            <input type="email" placeholder="Email" name="email" class="register-email" />
+            <div class="input-password">
+              <input type="password" placeholder="Password" class="password_field" />
+              <button class="password-visible-sign">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+            <button type="submit" id="SignUp">Sign Up</button>
+        </div>
+        <!-- Erro meesage -->
+        <!-- <div class="error-login">
+              <div class="icon">
+                <i class="fa-solid fa-exclamation"></i>
+              </div>
+              <div class="message-error">
+                <span class="error-login-text">Please enteasswrore  enasswrord</span>
+              </div>
+            </div>
+             -->
+        </form>
+      </div>
+
+      <div class="form sign-in-form active">
+        <!-- Sign In form here -->
+        <div class="wrapper">
+          <form action="#">
+            <h1>Sign In</h1>
+            <p>Sign in to access your account</p>
+            <input type="email" placeholder="Email" name="email" class="login-email" />
+            <div class="input-password">
+              <input type="password" placeholder="Password" class="password_field" />
+              <button class="password-visible-sign">
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+            <button type="submit" id="SignIn">Sign In</button>
+
+            <!-- <div class="form-message success">
+              <div class="icon">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <div class="message-error">
+                <span class="error-login-text">Registration successful. You can now log in.</span>
+              </div>
+            </div> -->
+
+          </form>
+        </div>
+      </div>
+
+      <!-- Overlay containers -->
+      <div class="overlay-container">
+        <div class="overlay">
+          <!-- Overlay panel left side -->
+          <div class="overlay-left">
+            <img src="img/logo-color.png" alt="Logo" />
+            <h1>Hello, Friend!</h1>
+            <p>Sign up and start enjoying all the benefits of our platform</p>
+            <button id="signInButton">Sign Up</button>
+          </div>
+
+          <!-- Overlay panel right side -->
+          <div class="overlay-right">
+            <img src="img/logo-color.png" alt="Logo" />
+            <h1>Welcome Back!</h1>
+            <p>Already a member? Sign in to access your account.</p>
+            <button id="signUpButton">Sign In</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</body>
+
+</html>

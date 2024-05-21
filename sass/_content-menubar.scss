@@ -1,0 +1,218 @@
+@import "files";
+
+.info-menubar {
+  background-color: $color-dark;
+  height: 100%;
+  grid-column: 2 / 6;
+  grid-row: 1 / 11;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px 35px;
+    cursor: default;
+
+    &--text {
+      font-size: 20px;
+      font-family: $fonts;
+      font-weight: 700;
+      color: $color-white;
+      font-style: normal;
+    }
+
+    &--icons {
+      display: flex;
+      gap: 15px;
+
+      i {
+        height: 35px;
+        width: 35px;
+        border-radius: 100px;
+        color: $color-white;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.4s ease-in-out;
+
+        &:hover {
+          background-color: $color-secondary-dar-bg;
+        }
+      }
+    }
+  }
+
+  //MENU BAR LIST
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+    height: 83vh;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $color-dark;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $color-primary;
+    }
+
+    &--item {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      background-color: $color-dark-light;
+      width: 90%;
+      border-radius: 10px;
+
+      input {
+        display: none;
+        &:checked + label + .info-menubar__list--item-content-container {
+          opacity: 1;
+          max-height: 850px;
+          visibility: visible;
+        }
+        &:checked + label::after {
+          content: "\268A";
+        }
+      }
+
+      &-title-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        gap: 15px;
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+          content: "\271B";
+          position: absolute;
+          right: 0px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: $color-grey;
+          font-size: 13px;
+          opacity: 0.6;
+        }
+
+        p {
+          color: $color-grey;
+          font-family: $fonts;
+          font-size: 16px;
+          font-weight: 400;
+        }
+
+        .number {
+          color: $color-dark-light;
+          background-color: $color-primary;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: $fonts;
+          font-weight: 600;
+          font-size: 12px;
+          border-radius: 7px;
+          padding: 3px 7px;
+        }
+      }
+
+      // List items container
+
+      &-content-container {
+        max-height: 0;
+        visibility: hidden;
+        overflow: hidden;
+        transition: all 0.5s ease-in-out;
+
+        &-full-month {
+          height: 100%;
+        }
+
+        .list {
+          display: flex;
+          flex-direction: column;
+          margin-top: 15px;
+          gap: 2px;
+
+          .day {
+            display: flex;
+            flex-direction: row;
+            padding: 4px;
+
+            &-title {
+              display: flex;
+              color: $color-grey;
+              font-family: $fonts;
+              font-size: 14px;
+              font-weight: 500;
+              gap: 10px;
+              width: 80%;
+              transition: all 0.3s ease;
+              cursor: pointer;
+
+              &:hover {
+                transform: translateX(4px);
+
+                i {
+                  color: $color-primary;
+                }
+              }
+            }
+
+            &-numbers {
+              display: flex;
+              width: 20%;
+              justify-content: flex-end;
+              align-items: center;
+              color: $color-primary;
+              font-family: $fonts;
+              font-size: 15px;
+              font-weight: 500;
+              font-size: 14px;
+              cursor: inherit;
+
+              span {
+                cursor: default;
+              }
+            }
+
+            i {
+              color: $color-grey;
+              display: flex;
+              align-self: center;
+              justify-self: center;
+            }
+          }
+          .active-day {
+            color: $color-primary;
+            margin-left: 4px;
+            transition: all 0.3 ease !important;
+
+            .day-title {
+              color: $color-primary;
+            }
+
+            i {
+              color: $color-primary;
+            }
+
+            &:hover {
+              transform: translateX(0px) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

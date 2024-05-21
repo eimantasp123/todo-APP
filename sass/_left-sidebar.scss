@@ -1,0 +1,82 @@
+@import "files";
+
+////////////////////// LEFT SIDEBAR -- TOP //////////////
+.sidebar {
+  background-color: $color-dark-light;
+  height: 100%;
+  grid-column: 1 / 2;
+  grid-row: 1 / 11;
+
+  ////////// Sidebar top //////////
+  ////////////////////////////////////
+  &-top {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    padding: 25px 5px 5px;
+
+    &__logo img {
+      width: 100%;
+      padding: 5px 5px 20px;
+    }
+
+    &__icons {
+      .sidebar-icon,
+      .icon--active {
+        text-align: center;
+        align-content: center;
+        height: 50px;
+        width: 50px;
+        border-radius: 10px;
+        font-size: 18px;
+        margin: 5px;
+        cursor: pointer;
+        transition: transform 0.25s ease-in, background-color 0.3s ease-in-out;
+      }
+
+      .sidebar-icon {
+        color: $color-grey;
+
+        &:hover {
+          background-color: $color-secondary-dar-bg;
+          transform: translateY(-2px);
+        }
+      }
+
+      .icon--active {
+        background-color: $color-primary;
+        color: $color-dark-light;
+      }
+    }
+  }
+
+  ////////// Sidebar bottom //////////
+  ////////////////////////////////////
+  &-bottom {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 25px 5px 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: end;
+    gap: 15px;
+    margin-top: auto;
+    padding: 5px 5px 25px;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      cursor: pointer;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.4s ease;
+      position: relative;
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+    }
+  }
+}

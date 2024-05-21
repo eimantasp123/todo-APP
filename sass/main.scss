@@ -1,0 +1,21 @@
+@import "files";
+@import "_left-sidebar";
+@import "_content-menubar";
+@import "_content-header";
+@import "_content-data";
+@import "login/login";
+@import "login/accountDetails";
+@import "_addTask";
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 70px repeat(18, 1fr);
+  grid-template-rows: repeat(10, 10vh);
+  overflow: hidden;
+  transition: opacity 5s ease-in-out;
+}
+
+.hidden {
+  display: none;
+}
