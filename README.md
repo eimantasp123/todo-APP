@@ -2,7 +2,8 @@
 
 ## Description
 
-The To-Do App is a web-based application designed to help users manage their tasks efficiently. It features user authentication, task management, and a user-friendly interface for adding, editing, and deleting tasks. The app also supports profile management where users can update their personal information and profile picture.
+The To-Do App is a web-based application designed to help users manage their tasks efficiently. It features user authentication, task management, and a user-friendly interface for adding, editing, and deleting tasks. The app also supports profile management where users can update their personal information and profile picture. 
+The system only works on the local browser. In whichever browser the user created the account, it is valid there. If the Chrome browser was used to create the account, then the firefox browser will not be available for this account.
 
 ## Features
 
